@@ -1,0 +1,8 @@
+what,kind,bundleId,bundleVersion,description,time
+stopped,bundle,org.eclipse.team.ui,3.5.101.R36x_v20100825-0800,"org.eclipse.team.ui",1431930858318
+stopped,bundle,org.eclipse.compare,3.5.100.I20100526-0800,"org.eclipse.compare",1431930858319
+stopped,bundle,org.eclipse.datatools.enablement.ingres.ui,1.0.0.v201006242214,"org.eclipse.datatools.enablement.ingres.ui",1431930858320
+stopped,bundle,org.eclipse.datatools.sqltools.db.derby.ui,1.0.0.v200906020900,"org.eclipse.datatools.sqltools.db.derby.ui",1431930858321
+stopped,bundle,org.eclipse.datatools.sqltools.db.generic.ui,1.0.0.v200906020900,"org.eclipse.datatools.sqltools.db.generic.ui",1431930858321
+stopped,bundle,org.eclipse.datatools.sqltools.routineeditor.ui,1.0.1.v201004060545,"org.eclipse.datatools.sqltools.routineeditor.ui",1431930858322
+stopped,bundle,org.eclipse.datatools.sqltools.sqlbuilder,1.0.3.v201009131745,"org.eclipse.datatools.sqltools.sqlbuilder",1431930858324
