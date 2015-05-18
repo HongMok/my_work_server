@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:p="http://www.springframework.org/schema/p"       
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+		
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="initialSize" value="1" />
+		<property name="maxActive" value="10" />
+		<property name="maxIdle" value="8" />
+		<property name="minIdle" value="1" />
+		<property name="maxWait" value="20000" />
+		<property name="removeAbandoned" value="true"/>
+		<property name="removeAbandonedTimeout" value="10000"/>
+		<property name="logAbandoned" value="true"/>
+		<property name="validationQuery" value="select CURRENT_DATE"/>
+		<property name="driverClassName" value="${datasource.driverClassName}" />
+		<property name="url" value="${datasource.url}" />
+		<property name="username" value="${datasource.username}" />
+		<property name="password" value="${datasource.password}" />
+	</bean>
+    
+	<!-- Spring事务管理-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<!-- 注解方式管事事物: 缺点-过于分散,无法集中管理 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+    <!-- 保证POJO中标注@Required的属性被注入 -->
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+	<!-- 基础DAO -->
+	<bean id="dao" class="com.mx.core.dao.BaseDao">
+    	<property name="dataSource" ref="dataSource" />
+    </bean>
+    
+     <bean id="userservice" class="com.mx.core.service.user.UserServiceImpl"> 
+		<property name="dao" ref="dao"/> 
+	 </bean>
+	 
+</beans>
