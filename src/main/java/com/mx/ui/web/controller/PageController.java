@@ -28,7 +28,6 @@ public class PageController implements Controller{
    			e.printStackTrace();
    			return null;
    		}
-   		
 	}
    	
    	protected PageParam getPageParam(ModelMap m){

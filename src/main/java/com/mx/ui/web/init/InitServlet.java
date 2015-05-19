@@ -19,11 +19,9 @@ public class InitServlet extends HttpServlet {
 	private static final long serialVersionUID = 111111L;
 	protected static final Log log = LogFactory.getLog(InitServlet.class);
 	
-	
 	@Override
 	public void init() throws ServletException
 	{
-
 		System.out.println("system initttttttttt");
 		log.info("开始加载系统参数");
 		

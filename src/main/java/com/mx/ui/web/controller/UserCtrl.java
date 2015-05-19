@@ -16,14 +16,34 @@ import com.mx.core.service.user.UserServiceInf;
 import com.mx.core.util.ResultCode;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("ctlUser")
 public class UserCtrl extends PageController{
+	
+	/**
+	 * 验证用户登陆
+	 * 
+	 * @param mobile:String 
+	 * @param password:String  
+	 * 
+	 * @return
+	 * <li> res:int {@link ResultCode}
+	 * <li> user:User {@link User}
+	 * */
+	private static final String reqFindUser = "reqFindUser";
+	
+	/**
+	 * 新增或者更新用户信息
+	 * 
+	 * @param user:User
+	 * */
+	private static final String reqUpdateUser = "reqUpdateUser";
+	
 	protected Log log = LogFactory.getLog(this.getClass());
 	
 	@Autowired
 	private UserServiceInf userservice;
 	
-	@RequestMapping("finduser")
+	@RequestMapping(reqFindUser)
 	public void findUser( HttpServletRequest req, HttpServletResponse rep ) throws Exception{
 		int code=1;
 		
@@ -44,7 +64,7 @@ public class UserCtrl extends PageController{
 		putResultResponse(rep, res);
 	}
 	
-	@RequestMapping("updateuser")
+	@RequestMapping(reqUpdateUser)
 	public void updateUser( HttpServletRequest req, HttpServletResponse rep ) throws Exception
 	{
 		JSONObject obj = (JSONObject)req.getAttribute("user");
