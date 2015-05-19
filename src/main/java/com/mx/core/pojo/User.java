@@ -3,7 +3,7 @@ package com.mx.core.pojo;
 import net.sf.json.JSONObject;
 
 public class User implements IData{
-	private String userId;
+	private String userId;       //用户id
 	private String passWord;
 	private String nickName;
 	private String email;
