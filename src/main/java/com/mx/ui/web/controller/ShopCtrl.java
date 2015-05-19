@@ -26,11 +26,11 @@ public class ShopCtrl extends PageController{
 	@RequestMapping("findShopById")
 	public void findShopById( HttpServletRequest req, HttpServletResponse rep,  ModelMap m,HttpSession session) throws Exception
 	{
-//		Integer shopId = Integer.valueOf( req.getParameter("shopId") );
-		Integer shopId = 1;
-		if( null == shopId ){
-			return ;
-		}
+		Integer shopId = Integer.valueOf( req.getParameter("shopId") );
+//		Integer shopId = 1;
+//		if( null == shopId ){
+//			return ;
+//		}
 		Shop shop = ShopConfig.getShopById( shopId );
 		
 		putResultResponse( rep, shop.toJsonObj() );

@@ -57,10 +57,6 @@ public class UserCtrl extends PageController{
 			code = ResultCode.NOT_SUCH_USER;
 			log.error("查询用户失败", ex);
 		}
-		String json=String.format("{code:'%d',msg:'%s'}", code,msg);
-		if(user!=null){
-			json=String.format("{code:'%d',msg:'%s',userid:'%s'}", code,msg,user.getUserId() );
-		}
 		
 		JSONObject res = new JSONObject();
 		res.put("res", code);
