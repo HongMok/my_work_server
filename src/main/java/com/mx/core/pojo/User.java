@@ -4,7 +4,7 @@ import net.sf.json.JSONObject;
 
 public class User implements IData{
 	private String userId;       //用户id
-	private String passWord;
+	private String passWord;     //密码
 	private String nickName;
 	private String email;
 	private String mobliePhone;
