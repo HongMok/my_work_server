@@ -22,8 +22,8 @@ public class UserCtrl extends PageController{
 	/**
 	 * 验证用户登陆
 	 * 
-	 * @param mobile:String 
-	 * @param password:String  
+	 * @param mobile:String        电话
+	 * @param password:String      密码
 	 * 
 	 * @return
 	 * <li> res:int {@link ResultCode}
