@@ -25,7 +25,7 @@ public class ShopCtrl extends PageController{
 	 * 
 	 * @param shopId:int              商店ID    
 	 * 
-	 * @return shop:{@link Shop}     商店
+	 * @return shop:{@link Shop}     商店信息内容
 	 * */
 	private static final String reqFindShopById = "reqFindShopById";
 	
