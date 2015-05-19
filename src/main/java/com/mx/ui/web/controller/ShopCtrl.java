@@ -23,7 +23,7 @@ public class ShopCtrl extends PageController{
 	/**
 	 * 根据shopId，找出配置
 	 * 
-	 * @param shopId:int                  
+	 * @param shopId:int              商店ID    
 	 * 
 	 * @return shop:{@link Shop}
 	 * */
