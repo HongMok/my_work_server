@@ -1,9 +1,5 @@
 package com.mx.ui.web.controller;
 
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
@@ -29,15 +25,15 @@ public class UserCtrl extends PageController{
 	private UserServiceInf userservice;
 	
 	@RequestMapping("finduser")
-//	public String findUser(@RequestParam("un") String userid, @RequestParam("psw") String psw, ModelMap m,HttpSession session) throws Exception
-	public String findUser( HttpServletRequest req,HttpServletResponse rep,  ModelMap m,HttpSession session) throws Exception
+	public String findUser(@RequestParam("un") String userid, @RequestParam("psw") String psw, ModelMap m,HttpSession session) throws Exception
+//	public String findUser( HttpServletRequest req, HttpServletResponse rep,  ModelMap m,HttpSession session) throws Exception
 	{
 		int code=1;
 		String msg="查询用户失败";
 		User user=null;
 		
-		String userid = req.getParameter("mobile");
-		String psw = req.getParameter("password");
+//		String userid = req.getParameter("mobile");
+//		String psw = req.getParameter("password");
 		
 //		user=userservice.findUserById(userid, psw);
 //		if( user == null )
@@ -66,25 +62,20 @@ public class UserCtrl extends PageController{
 			json=String.format("{code:'%d',msg:'%s',userid:'%s'}", code,msg,user.getUserId() );
 		}
 		
-		PrintWriter writer = rep.getWriter();
-		JSONObject object = new JSONObject();
-		if(code== ResultCode.SUCCESS) 
+		JSONObject res = new JSONObject();
+		res.put("res", code);
+		if( code== ResultCode.SUCCESS ) 
 		{
-			object.put("retcode", 0); 
+			res.put("user", user.toJsonObj());
 		} 
-		else  
-		{ 
-			object.put("retcode", 1); 
-		} 
-		writer.println(object.toString()); 
-		writer.flush(); 
-		writer.close();
+//		putResultResponse(rep, res);
 		
-		m.put(AJAX_MSG, json);
+		m.put(AJAX_MSG, res.toString());
 		return AJAX_URL;
 	}
 	
 	@RequestMapping("updateuser")
+//	public String findUser( HttpServletRequest req,HttpServletResponse rep,  ModelMap m,HttpSession session) throws Exception
 	public String udpateUser( ModelMap m,HttpSession session ) throws Exception
 	{
 		int code = 1;

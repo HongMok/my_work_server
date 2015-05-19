@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.mx.core.dao.BaseDao;
 import com.mx.core.service.shop.ShopConfig;
-import com.mx.core.util.SpringUtil;
 
 
 
@@ -22,6 +20,7 @@ public class InitServlet extends HttpServlet {
 	protected static final Log log = LogFactory.getLog(InitServlet.class);
 	
 	
+	@Override
 	public void init() throws ServletException
 	{
 
@@ -38,10 +37,12 @@ public class InitServlet extends HttpServlet {
 		ShopConfig.getAllShopConfig();
 	}
 
+	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}
 	
+	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}

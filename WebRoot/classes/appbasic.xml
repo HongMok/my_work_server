@@ -40,6 +40,11 @@
 	<bean id="dbop" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="oacpayDS" />
 	</bean>
+	
+	<bean id="shopservice" class="com.mx.core.service.shop.ShopServiceImpl"> 
+		<property name="dao" ref="dao"/> 
+	 </bean>
+	 
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
 		lazy-init="true">

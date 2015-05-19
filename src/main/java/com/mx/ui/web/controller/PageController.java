@@ -1,5 +1,9 @@
 package com.mx.ui.web.controller;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -35,4 +39,11 @@ public class PageController implements Controller{
 		}
 		return pp;
    	}
+   	
+   	protected void putResultResponse( HttpServletResponse rep, Object res ) throws Exception{
+   		PrintWriter writer = rep.getWriter();
+		writer.println(res.toString()); 
+		writer.flush(); 
+		writer.close();
+	}
 }

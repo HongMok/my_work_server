@@ -5,7 +5,7 @@ import com.mx.core.service.BaseService;
 
 public class UserServiceImpl extends BaseService implements UserServiceInf {
 	
-	private static final String cmdFindUser = "select * from user where userid=? and password = ?";
+	private static final String cmdFindUser = "select * from user where userName=? and password = ?";
 	
 	private static final String cmdUpdateUser = "replace into user (UserId, PassWord, NickName, Email, MobliePhone) values( ?, ?, ?, ?, ?)";
 	

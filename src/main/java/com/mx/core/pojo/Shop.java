@@ -1,6 +1,8 @@
 package com.mx.core.pojo;
 
-public class Shop {
+import net.sf.json.JSONObject;
+
+public class Shop implements IData{
 
 	private int shopId;
 	private int typeFirst;
@@ -87,5 +89,19 @@ public class Shop {
 		this.extObj = extObj;
 	}
 	
-	
+	@Override
+	public JSONObject toJsonObj() {
+		JSONObject obj = new JSONObject();
+		obj.put("shopId", shopId);
+		obj.put("typeFirst", typeFirst);
+		obj.put("typeSecond", typeSecond);
+		obj.put("name", name);
+		obj.put("addressCN", addressCN);
+		obj.put("addressCoordinate", addressCoordinate);
+		obj.put("description", description);
+		obj.put("special", special);
+		obj.put("phoneList", phoneList);
+		obj.put("averagePrice", averagePrice);
+		return obj;
+	}
 }

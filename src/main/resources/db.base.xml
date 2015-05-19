@@ -52,8 +52,4 @@
 		<property name="dao" ref="dao"/> 
 	 </bean>
 	 
-	 <bean id="shopconfig" class="com.mx.core.service.shop.ShopConfig"> 
-		<property name="dao" ref="dao"/> 
-	 </bean>
-	 
 </beans>

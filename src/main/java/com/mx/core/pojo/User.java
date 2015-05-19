@@ -1,6 +1,8 @@
 package com.mx.core.pojo;
 
-public class User {
+import net.sf.json.JSONObject;
+
+public class User implements IData{
 	private String userId;
 	private String passWord;
 	private String nickName;
@@ -38,6 +40,15 @@ public class User {
 		this.mobliePhone = mobliePhone;
 	}
 	
-	
+	@Override
+	public JSONObject toJsonObj() {
+		JSONObject obj = new JSONObject();
+		obj.put("userId", userId);
+		obj.put("passWord", passWord);
+		obj.put("nickName", nickName);
+		obj.put("email", email);
+		obj.put("mobliePhone", mobliePhone);
+		return obj;
+	}
 
 }
