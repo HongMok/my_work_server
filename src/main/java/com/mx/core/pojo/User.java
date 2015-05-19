@@ -50,5 +50,15 @@ public class User implements IData{
 		obj.put("mobliePhone", mobliePhone);
 		return obj;
 	}
+	
+	public User parse( JSONObject obj ){
+		userId = obj.getString( "userId" );
+		passWord = obj.getString( "passWord" );
+		nickName = obj.getString( "nickName" );
+		email = obj.getString( "email" );
+		mobliePhone = obj.getString( "mobliePhone" );
+		
+		return this;
+	}
 
 }

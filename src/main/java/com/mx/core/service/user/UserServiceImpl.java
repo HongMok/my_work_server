@@ -11,7 +11,7 @@ public class UserServiceImpl extends BaseService implements UserServiceInf {
 	
 	
 	@Override
-	public User findUserById(String userid, String psw )throws Exception
+	public User findUserById(String userid, String psw )
 	{
 		User user = dao.findObject( cmdFindUser, User.class, new Object[]{userid, psw });
 		
@@ -20,7 +20,7 @@ public class UserServiceImpl extends BaseService implements UserServiceInf {
 
 
 	@Override
-	public void updateUser(User user) throws Exception {
+	public void updateUser(User user) {
 		dao.update( cmdUpdateUser, new Object[]{ user.getUserId(), user.getPassWord(), user.getNickName(), user.getEmail(), user.getMobliePhone() });
 	}
 }

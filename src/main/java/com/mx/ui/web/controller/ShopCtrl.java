@@ -4,14 +4,12 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONArray;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mx.core.pojo.Shop;
@@ -24,20 +22,19 @@ public class ShopCtrl extends PageController{
 	protected Log log = LogFactory.getLog(this.getClass());
 	
 	@RequestMapping("findShopById")
-	public void findShopById( HttpServletRequest req, HttpServletResponse rep,  ModelMap m,HttpSession session) throws Exception
+	public void findShopById( HttpServletRequest req, HttpServletResponse rep ) throws Exception
 	{
 		Integer shopId = Integer.valueOf( req.getParameter("shopId") );
-//		Integer shopId = 1;
-//		if( null == shopId ){
-//			return ;
-//		}
+		if( null == shopId ){
+			return ;
+		}
 		Shop shop = ShopConfig.getShopById( shopId );
 		
 		putResultResponse( rep, shop.toJsonObj() );
 	}
 	
 	@RequestMapping("findShopByType")
-	public void findUser( HttpServletRequest req, HttpServletResponse rep,  ModelMap m,HttpSession session) throws Exception
+	public void findUser( HttpServletRequest req, HttpServletResponse rep ) throws Exception
 	{
 		Integer typeFirst = Integer.valueOf( req.getParameter("typeFirst") );
 		Integer typeSecond = Integer.valueOf( req.getParameter("typeSecond") );
