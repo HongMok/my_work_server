@@ -32,7 +32,7 @@ public class InitServlet extends HttpServlet {
 	
 	private void initConfig()
 	{
-		ShopConfig.getAllShopConfig();
+		ShopConfig.getAllShopConfig();  //初始化商店信息
 	}
 
 	@Override
